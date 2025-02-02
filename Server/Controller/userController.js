@@ -29,9 +29,13 @@ const fetchSingleUser = async (req, res, next) => {
 const deleteUser = async (req, res, next) => {
     const {userId} = req.body
     try {
-        const response = Users.findOneAndDelete(userId);
+        const response = await Users.findOneAndDelete(userId);
 
-        res.json(response);
+        res.json({
+            message: 'User Deleted successfully', 
+            user: response
+        });
+
     } catch (error) {
         res.json({
             message: 'An error occured'
@@ -71,17 +75,15 @@ const UpdateUser = async (req, res, next) => {
 
        const updateUserDetails = await Users.findByIdAndUpdate(userId, {$set: upadtedData});
 
-       const result = updateUserDetails.json();
-
        res.json({
         message: 'User updated successfuly',
-        description: result,
+        userData: updateUserDetails,
        })
 
 
     } catch (error) {
         res.json({
-            message: 'An error occured!'
+            message: 'An error occured!',
         })
     }
 }
