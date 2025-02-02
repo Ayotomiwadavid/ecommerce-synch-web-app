@@ -9,3 +9,5 @@ router.get('fetch-single-user', users.fetchSingleUser);
 router.post('update-user-details', users.UpdateUser);
 router.post('Store-user', users.storeUserToDb);
 router.post('delete-user', users.deleteUser);
+
+module.exports = router;

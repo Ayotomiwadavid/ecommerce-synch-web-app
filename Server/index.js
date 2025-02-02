@@ -4,6 +4,8 @@ const axios = require('axios');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+const userRoute = require('./Routes/userRoute');
+
 mongoose.connect('mongodb+srv://techthoth02:CyNA3V2FI1p4vevI@cluster0.iy8rc.mongodb.net/test');
 
 const db = mongoose.connection;
@@ -30,4 +32,6 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
     console.log("Server listening on port " + port);
-})
+});
+
+app.use('/api/users', userRoute);
