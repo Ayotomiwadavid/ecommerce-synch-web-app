@@ -41,7 +41,7 @@ const deleteUser = async (req, res, next) => {
             message: 'An error occured'
         })
     }
-}
+};
 
 const storeUserToDb = async (req, res, next) => {
     const {name, email} = req.body
