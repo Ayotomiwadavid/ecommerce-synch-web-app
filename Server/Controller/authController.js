@@ -51,7 +51,7 @@ const userLogin = async (req, res, next) => {
         }
 
         // Generate JWT token
-        const token = jwt.sign({ name: user.name }, 'verySecretiveValue', { expiresIn: '1h' });
+        const token = jwt.sign({ name: user.name }, 'AzQ,PI)0(', { expiresIn: '1h' });
 
         return res.json({
             message: 'Login Successful',
