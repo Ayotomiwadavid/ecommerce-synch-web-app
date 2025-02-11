@@ -48,7 +48,7 @@ const storeUserToDb = async (req, res, next) => {
     try {
         let user = new Users({
             name,
-            email
+            email,
         });
 
         const response = await user.save();
